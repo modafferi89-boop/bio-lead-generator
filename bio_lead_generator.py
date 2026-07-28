@@ -1,6 +1,3 @@
-Ecco il codice completo e corretto per il file `bio_lead_generator.py` pronto da incollare su GitHub:
-
-```python
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -144,5 +141,3 @@ with st.expander("❓ Frequently Asked Questions"):
     st.write("A: You will be instantly redirected to the official technical presentation page.")
 
 st.markdown("<p style='text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 25px;'>Built on rigorous principles of biophysics. Designed for global wellness enthusiasts.</p>", unsafe_allow_html=True)
-
-```
