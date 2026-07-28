@@ -10,10 +10,10 @@ st.set_page_config(
     layout="centered"
 )
 
-# Inserisci qui il tuo ID Google Analytics (opzionale: sostituisci G-XXXXXXXXXX con il tuo Measurement ID)
+# ID Google Analytics
 GOOGLE_ANALYTICS_ID = "G-GHSTG893H9"
 
-if GOOGLE_ANALYTICS_ID != "G-GHSTG893H9":
+if GOOGLE_ANALYTICS_ID != "G-XXXXXXXXXX":
     st.markdown(f"""
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id={GOOGLE_ANALYTICS_ID}"></script>
@@ -25,7 +25,70 @@ if GOOGLE_ANALYTICS_ID != "G-GHSTG893H9":
         </script>
     """, unsafe_allow_html=True)
 
-# Stile CSS ottimizzato per la massima leggibilità e conversione
+# Selettore di lingua in cima alla pagina
+col1, col2, col3 = st.columns([2, 2, 1])
+with col3:
+    lingua = st.selectbox("🌐", ["English", "Italiano"], label_visibility="collapsed")
+
+# Dizionario delle traduzioni
+t = {
+    "English": {
+        "title": "Reconnect Your Body to Its Optimal Frequency",
+        "subtitle": "Discover the Next Frontier of Bio-Hacking and Energy Regeneration",
+        "trust": "🔒 Secure Protocol &nbsp;|&nbsp; 🌍 International Standard &nbsp;|&nbsp; ⚡ Instant Access",
+        "social": "⭐️ Trusted by over 1,400+ bio-hacking enthusiasts worldwide",
+        "benefits_title": "Key Benefits",
+        "b1_title": "Harmonic Frequency Technology",
+        "b1_desc": "Leverages advanced stimulation principles to promote a state of deep cellular and mental relaxation.",
+        "b2_title": "Day & Night Recovery Optimization",
+        "b2_desc": "Helps counteract the effects of chronic fatigue and oxidative stress caused by fast-paced modern rhythms.",
+        "b3_title": "Seamless Daily Wellness Integration",
+        "b3_desc": "Designed for effortless use, offering constant support for your holistic health journey.",
+        "b4_title": "Non-Invasive Approach",
+        "b4_desc": "A safe, side-effect-free solution ideal for those looking to care for themselves naturally and cutting-edge.",
+        "form_title": "Get Instant Access",
+        "form_desc": "Enter your best email address below to unlock immediate access to the full guide and technical presentation.",
+        "email_placeholder": "Enter your email...",
+        "button": "UNLOCK INSTANT ACCESS NOW",
+        "success": "Access granted! Redirecting to the presentation...",
+        "error": "Please enter a valid email address.",
+        "faq_title": "❓ Frequently Asked Questions",
+        "q1": "Q: Is this presentation suitable for beginners?",
+        "a1": "A: Yes, the technical guide is structured to be easily understood by anyone passionate about wellness and bio-hacking.",
+        "q2": "Q: How do I access the material after entering my email?",
+        "a2": "A: You will be instantly redirected to the official technical presentation page.",
+        "footer": "Built on rigorous principles of biophysics. Designed for global wellness enthusiasts."
+    },
+    "Italiano": {
+        "title": "Riconnetti il tuo corpo alla sua frequenza ottimale",
+        "subtitle": "Scopri la nuova frontiera del Bio-Hacking e della Rigenerazione Energetica",
+        "trust": "🔒 Protocollo Sicuro &nbsp;|&nbsp; 🌍 Standard Internazionale &nbsp;|&nbsp; ⚡ Accesso Immediato",
+        "social": "⭐️ Scelto da oltre 1.400+ appassionati di bio-hacking in tutto il mondo",
+        "benefits_title": "Principali Vantaggi",
+        "b1_title": "Tecnologia a Frequenza Armonica",
+        "b1_desc": "Sfrutta principi di stimolazione avanzata per promuovere uno stato di profondo rilassamento cellulare e mentale.",
+        "b2_title": "Ottimizzazione del Recupero Giorno e Notte",
+        "b2_desc": "Aiuta a contrastare gli effetti della stanchezza cronica e dello stress ossidativo causati dai ritmi moderni.",
+        "b3_title": "Integrazione Perfetta nel Benessere Quotidiano",
+        "b3_desc": "Progettato per un utilizzo semplice, offre un supporto costante per il tuo percorso di salute olistica.",
+        "b4_title": "Approccio Non Invasivo",
+        "b4_desc": "Una soluzione sicura e priva di effetti collaterali, ideale per chi desidera prendersi cura di sé in modo naturale e all'avanguardia.",
+        "form_title": "Ottieni Accesso Immediato",
+        "form_desc": "Inserisci il tuo miglior indirizzo email qui sotto per sbloccare l'accesso immediato alla guida e alla presentazione tecnica.",
+        "email_placeholder": "Inserisci la tua email...",
+        "button": "SBLOCCA SUBITO L'ACCESSO",
+        "success": "Accesso consentito! Reindirizzamento alla presentazione...",
+        "error": "Inserisci un indirizzo email valido.",
+        "faq_title": "❓ Domande Frequenti",
+        "q1": "D: Questa presentazione è adatta ai principianti?",
+        "a1": "R: Sì, la guida tecnica è strutturata per essere compresa facilmente da chiunque sia appassionato di benessere e bio-hacking.",
+        "q2": "D: Come posso accedere al materiale dopo aver inserito la mia email?",
+        "a2": "R: Verrai reindirizzato istantaneamente alla pagina della presentazione tecnica ufficiale.",
+        "footer": "Basato su rigorosi principi di biofisica. Progettato per gli amanti del benessere di tutto il mondo."
+    }
+}
+
+# Stile CSS ottimizzato
 st.markdown("""
     <style>
     .main {
@@ -81,43 +144,43 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Intestazione Principale con contrasto perfetto
-st.markdown("<h1 style='text-align: center; color: #0284c7;'>Reconnect Your Body to Its Optimal Frequency</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; font-style: italic; color: #475569; font-size: 1.15rem;'>Discover the Next Frontier of Bio-Hacking and Energy Regeneration</p>", unsafe_allow_html=True)
+# Intestazione Principale
+st.markdown(f"<h1 style='text-align: center; color: #0284c7;'>{t[lingua]['title']}</h1>", unsafe_allow_html=True)
+st.markdown(f"<p style='text-align: center; font-style: italic; color: #475569; font-size: 1.15rem;'>{t[lingua]['subtitle']}</p>", unsafe_allow_html=True)
 
 st.write("---")
 
 # Badge di fiducia e Social Proof
-st.markdown("<div class='trust-badge'>🔒 Secure Protocol &nbsp;|&nbsp; 🌍 International Standard &nbsp;|&nbsp; ⚡ Instant Access</div>", unsafe_allow_html=True)
-st.markdown("<div class='social-proof'>⭐️ Trusted by over 1,400+ bio-hacking enthusiasts worldwide</div>", unsafe_allow_html=True)
+st.markdown(f"<div class='trust-badge'>{t[lingua]['trust']}</div>", unsafe_allow_html=True)
+st.markdown(f"<div class='social-proof'>{t[lingua]['social']}</div>", unsafe_allow_html=True)
 
 # Sezione Benefici
-st.markdown("### Key Benefits")
+st.markdown(f"### {t[lingua]['benefits_title']}")
 
-st.markdown("""
+st.markdown(f"""
 <div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.15rem;">Harmonic Frequency Technology</strong><br>
-    <div class="benefit-desc">Leverages advanced stimulation principles to promote a state of deep cellular and mental relaxation.</div>
+    <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b1_title']}</strong><br>
+    <div class="benefit-desc">{t[lingua]['b1_desc']}</div>
 </div>
 <div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.15rem;">Day & Night Recovery Optimization</strong><br>
-    <div class="benefit-desc">Helps counteract the effects of chronic fatigue and oxidative stress caused by fast-paced modern rhythms.</div>
+    <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b2_title']}</strong><br>
+    <div class="benefit-desc">{t[lingua]['b2_desc']}</div>
 </div>
 <div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.15rem;">Seamless Daily Wellness Integration</strong><br>
-    <div class="benefit-desc">Designed for effortless use, offering constant support for your holistic health journey.</div>
+    <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b3_title']}</strong><br>
+    <div class="benefit-desc">{t[lingua]['b3_desc']}</div>
 </div>
 <div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.15rem;">Non-Invasive Approach</strong><br>
-    <div class="benefit-desc">A safe, side-effect-free solution ideal for those looking to care for themselves naturally and cutting-edge.</div>
+    <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b4_title']}</strong><br>
+    <div class="benefit-desc">{t[lingua]['b4_desc']}</div>
 </div>
 """, unsafe_allow_html=True)
 
 st.write("---")
 
 # Sezione Modulo di Raccolta Contatti (Lead Generation)
-st.markdown("### Get Instant Access")
-st.markdown("Enter your best email address below to unlock immediate access to the full guide and technical presentation.")
+st.markdown(f"### {t[lingua]['form_title']}")
+st.markdown(t[lingua]['form_desc'])
 
 def save_lead(email):
     file_path = "leads.csv"
@@ -128,13 +191,13 @@ def save_lead(email):
         new_data.to_csv(file_path, mode='w', header=True, index=False)
 
 with st.form("lead_form"):
-    user_email = st.text_input("Email Address", placeholder="Enter your email...")
-    submit_button = st.form_submit_button(label="UNLOCK INSTANT ACCESS NOW")
+    user_email = st.text_input("Email Address", placeholder=t[lingua]['email_placeholder'])
+    submit_button = st.form_submit_button(label=t[lingua]['button'])
     
     if submit_button:
         if user_email and "@" in user_email and "." in user_email:
             save_lead(user_email)
-            st.success("Access granted! Redirecting to the presentation...")
+            st.success(t[lingua]['success'])
             
             affiliate_url = "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/"
             st.markdown(f"""
@@ -144,15 +207,15 @@ with st.form("lead_form"):
                 </script>
             """, unsafe_allow_html=True)
         else:
-            st.error("Please enter a valid email address.")
+            st.error(t[lingua]['error'])
 
 st.write("---")
 
 # Sezione FAQ a scomparsa
-with st.expander("❓ Frequently Asked Questions"):
-    st.write("**Q: Is this presentation suitable for beginners?**")
-    st.write("A: Yes, the technical guide is structured to be easily understood by anyone passionate about wellness and bio-hacking.")
-    st.write("**Q: How do I access the material after entering my email?**")
-    st.write("A: You will be instantly redirected to the official technical presentation page.")
+with st.expander(t[lingua]['faq_title']):
+    st.write(f"**{t[lingua]['q1']}**")
+    st.write(t[lingua]['a1'])
+    st.write(f"**{t[lingua]['q2']}**")
+    st.write(t[lingua]['a2'])
 
-st.markdown("<p style='text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 25px;'>Built on rigorous principles of biophysics. Designed for global wellness enthusiasts.</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 25px;'>{t[lingua]['footer']}</p>", unsafe_allow_html=True)
