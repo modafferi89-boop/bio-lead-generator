@@ -10,7 +10,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# Stile CSS con sfondi chiari e leggibili
+# Stile CSS avanzato per correggere le debolezze di leggibilità e spaziatura
 st.markdown("""
     <style>
     .main {
@@ -23,8 +23,9 @@ st.markdown("""
         color: white;
         font-weight: bold;
         border-radius: 6px;
-        padding: 0.6rem;
+        padding: 0.75rem;
         border: none;
+        font-size: 1.05rem;
     }
     .stButton>button:hover {
         background-color: #0284c7;
@@ -33,40 +34,56 @@ st.markdown("""
     .benefit-box {
         background-color: #ffffff;
         color: #0f172a;
-        padding: 18px;
+        padding: 20px;
         border-radius: 8px;
         border-left: 6px solid #0ea5e9;
-        margin-bottom: 14px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-bottom: 18px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    }
+    .benefit-desc {
+        color: #334155;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-top: 6px;
+    }
+    .trust-badge {
+        text-align: center;
+        color: #38bdf8;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 20px;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Intestazione Principale
+# Intestazione Principale con contrasto migliorato per il sottotitolo
 st.markdown("<h1 style='text-align: center; color: #38bdf8;'>Reconnect Your Body to Its Optimal Frequency</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; font-style: italic; color: #cbd5e1;'>Discover the Next Frontier of Bio-Hacking and Energy Regeneration</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-style: italic; color: #e2e8f0; font-size: 1.1rem;'>Discover the Next Frontier of Bio-Hacking and Energy Regeneration</p>", unsafe_allow_html=True)
 
 st.write("---")
 
-# Sezione Benefici con testi scuri su fondo chiaro
+# Badge di fiducia / Trust signals
+st.markdown("<div class='trust-badge'>🔒 Secure & Verified Protocol &nbsp;|&nbsp; 🌍 International Standard &nbsp;|&nbsp; ⚡ Instant Access</div>", unsafe_allow_html=True)
+
+# Sezione Benefici con spaziatura e font migliorati
 st.markdown("### Key Benefits")
 
 st.markdown("""
 <div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.1rem;">Harmonic Frequency Technology</strong><br>
-    Leverages advanced stimulation principles to promote a state of deep cellular and mental relaxation.
+    <strong style="color: #0284c7; font-size: 1.15rem;">Harmonic Frequency Technology</strong><br>
+    <div class="benefit-desc">Leverages advanced stimulation principles to promote a state of deep cellular and mental relaxation.</div>
 </div>
 <div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.1rem;">Day & Night Recovery Optimization</strong><br>
-    Helps counteract the effects of chronic fatigue and oxidative stress caused by fast-paced modern rhythms.
+    <strong style="color: #0284c7; font-size: 1.15rem;">Day & Night Recovery Optimization</strong><br>
+    <div class="benefit-desc">Helps counteract the effects of chronic fatigue and oxidative stress caused by fast-paced modern rhythms.</div>
 </div>
 <div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.1rem;">Seamless Daily Wellness Integration</strong><br>
-    Designed for effortless use, offering constant support for your holistic health journey.
+    <strong style="color: #0284c7; font-size: 1.15rem;">Seamless Daily Wellness Integration</strong><br>
+    <div class="benefit-desc">Designed for effortless use, offering constant support for your holistic health journey.</div>
 </div>
 <div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.1rem;">Non-Invasive Approach</strong><br>
-    A safe, side-effect-free solution ideal for those looking to care for themselves naturally and cutting-edge.
+    <strong style="color: #0284c7; font-size: 1.15rem;">Non-Invasive Approach</strong><br>
+    <div class="benefit-desc">A safe, side-effect-free solution ideal for those looking to care for themselves naturally and cutting-edge.</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -104,4 +121,12 @@ with st.form("lead_form"):
             st.error("Please enter a valid email address.")
 
 st.write("---")
-st.markdown("<p style='text-align: center; font-size: 0.8rem; color: #64748b;'>Built on rigorous principles of biophysics. Designed for global wellness enthusiasts.</p>", unsafe_allow_html=True)
+
+# Mini sezione FAQ / Garanzia per aumentare le conversioni
+with st.expander("❓ Frequently Asked Questions"):
+    st.write("**Q: Is this presentation suitable for beginners?**")
+    st.write("A: Yes, the technical guide is structured to be easily understood by anyone passionate about wellness and bio-hacking.")
+    st.write("**Q: How do I access the material after entering my email?**")
+    st.write("A: You will be instantly redirected to the official technical presentation page.")
+
+st.markdown("<p style='text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 20px;'>Built on rigorous principles of biophysics. Designed for global wellness enthusiasts.</p>", unsafe_allow_html=True)
