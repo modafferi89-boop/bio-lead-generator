@@ -10,6 +10,21 @@ st.set_page_config(
     layout="centered"
 )
 
+# Inserisci qui il tuo ID Google Analytics (opzionale: sostituisci G-XXXXXXXXXX con il tuo Measurement ID)
+GOOGLE_ANALYTICS_ID = "G-GHSTG893H9"
+
+if GOOGLE_ANALYTICS_ID != "G-GHSTG893H9":
+    st.markdown(f"""
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={GOOGLE_ANALYTICS_ID}"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){{dataLayer.push(arguments);}}
+          gtag('js', new Date());
+          gtag('config', '{GOOGLE_ANALYTICS_ID}');
+        </script>
+    """, unsafe_allow_html=True)
+
 # Stile CSS ottimizzato per la massima leggibilità e conversione
 st.markdown("""
     <style>
