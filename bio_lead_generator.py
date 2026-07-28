@@ -10,7 +10,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# Stile CSS personalizzato
+# Stile CSS con sfondi chiari e leggibili
 st.markdown("""
     <style>
     .main {
@@ -31,11 +31,13 @@ st.markdown("""
         color: white;
     }
     .benefit-box {
-        background-color: #1e293b;
-        padding: 15px;
+        background-color: #ffffff;
+        color: #0f172a;
+        padding: 18px;
         border-radius: 8px;
-        border-left: 4px solid #38bdf8;
-        margin-bottom: 10px;
+        border-left: 6px solid #0ea5e9;
+        margin-bottom: 14px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     </style>
 """, unsafe_allow_html=True)
@@ -46,24 +48,24 @@ st.markdown("<p style='text-align: center; font-style: italic; color: #cbd5e1;'>
 
 st.write("---")
 
-# Sezione Benefici
+# Sezione Benefici con testi scuri su fondo chiaro
 st.markdown("### Key Benefits")
 
 st.markdown("""
 <div class="benefit-box">
-    <strong>Harmonic Frequency Technology</strong><br>
+    <strong style="color: #0284c7; font-size: 1.1rem;">Harmonic Frequency Technology</strong><br>
     Leverages advanced stimulation principles to promote a state of deep cellular and mental relaxation.
 </div>
 <div class="benefit-box">
-    <strong>Day & Night Recovery Optimization</strong><br>
+    <strong style="color: #0284c7; font-size: 1.1rem;">Day & Night Recovery Optimization</strong><br>
     Helps counteract the effects of chronic fatigue and oxidative stress caused by fast-paced modern rhythms.
 </div>
 <div class="benefit-box">
-    <strong>Seamless Daily Wellness Integration</strong><br>
+    <strong style="color: #0284c7; font-size: 1.1rem;">Seamless Daily Wellness Integration</strong><br>
     Designed for effortless use, offering constant support for your holistic health journey.
 </div>
 <div class="benefit-box">
-    <strong>Non-Invasive Approach</strong><br>
+    <strong style="color: #0284c7; font-size: 1.1rem;">Non-Invasive Approach</strong><br>
     A safe, side-effect-free solution ideal for those looking to care for themselves naturally and cutting-edge.
 </div>
 """, unsafe_allow_html=True)
