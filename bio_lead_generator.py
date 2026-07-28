@@ -25,12 +25,16 @@ if GOOGLE_ANALYTICS_ID != "G-XXXXXXXXXX":
         </script>
     """, unsafe_allow_html=True)
 
-# Selettore di lingua in cima alla pagina
+# Selettore di lingua principale in alto a destra
 col1, col2, col3 = st.columns([2, 2, 1])
 with col3:
-    lingua = st.selectbox("🌐", ["English", "Italiano"], label_visibility="collapsed")
+    lingua = st.selectbox(
+        "🌐", 
+        ["English", "Italiano", "Español", "Français", "Deutsch", "中文", "日本語", "العربية"], 
+        label_visibility="collapsed"
+    )
 
-# Dizionario delle traduzioni
+# Dizionario delle traduzioni esteso
 t = {
     "English": {
         "title": "Reconnect Your Body to Its Optimal Frequency",
@@ -85,10 +89,172 @@ t = {
         "q2": "D: Come posso accedere al materiale dopo aver inserito la mia email?",
         "a2": "R: Verrai reindirizzato istantaneamente alla pagina della presentazione tecnica ufficiale.",
         "footer": "Basato su rigorosi principi di biofisica. Progettato per gli amanti del benessere di tutto il mondo."
+    },
+    "Español": {
+        "title": "Reconecta tu cuerpo con su frecuencia óptima",
+        "subtitle": "Descubre la nueva frontera del Bio-Hacking y la Regeneración Energética",
+        "trust": "🔒 Protocolo Seguro &nbsp;|&nbsp; 🌍 Estándar Internacional &nbsp;|&nbsp; ⚡ Acceso Inmediato",
+        "social": "⭐️ Con la confianza de más de 1,400 entusiastas del bio-hacking en todo el mundo",
+        "benefits_title": "Beneficios Clave",
+        "b1_title": "Tecnología de Frecuencia Armónica",
+        "b1_desc": "Aprovecha principios de estimulación avanzada para promover un estado de profunda relajación celular y mental.",
+        "b2_title": "Optimización de la Recuperación Día y Noche",
+        "b2_desc": "Ayuda a contrarrestar los efectos de la fatiga crónica y el estrés oxidativo causados por los ritmos modernos.",
+        "b3_title": "Integración Perfecta en el Bienestar Diario",
+        "b3_desc": "Diseñado para un uso sencillo, ofreciendo apoyo constante para tu viaje de salud holística.",
+        "b4_title": "Enfoque No Invasivo",
+        "b4_desc": "Una solución segura y sin efectos secundarios, ideal para quienes buscan cuidarse de forma natural y vanguardista.",
+        "form_title": "Obtén Acceso Inmediato",
+        "form_desc": "Introduce tu mejor dirección de correo electrónico para desbloquear acceso inmediato a la guía completa.",
+        "email_placeholder": "Introduce tu correo...",
+        "button": "DESBLOQUEAR ACCESO INMEDIATO",
+        "success": "¡Acceso concedido! Redirigiendo a la presentación...",
+        "error": "Por favor, introduce un correo electrónico válido.",
+        "faq_title": "❓ Preguntas Frecuentes",
+        "q1": "P: ¿Es adecuada esta presentación para principiantes?",
+        "a1": "R: Sí, la guía técnica está estructurada para ser comprendida fácilmente por cualquier apasionado del bienestar.",
+        "q2": "P: ¿Cómo accedo al material después de introducir mi correo?",
+        "a2": "R: Serás redirigido instantáneamente a la página oficial de la presentación técnica.",
+        "footer": "Basado en rigurosos principios de biofísica. Diseñado para entusiastas del bienestar global."
+    },
+    "Français": {
+        "title": "Reconnectez votre corps à sa fréquence optimale",
+        "subtitle": "Découvrez la nouvelle frontière du Bio-Hacking et de la Régénération Énergétique",
+        "trust": "🔒 Protocole Sécurisé &nbsp;|&nbsp; 🌍 Standard International &nbsp;|&nbsp; ⚡ Accès Instantané",
+        "social": "⭐️ Approuvé par plus de 1 400 passionnés de bio-hacking dans le monde",
+        "benefits_title": "Principaux Avantages",
+        "b1_title": "Technologie à Fréquence Harmonique",
+        "b1_desc": "Exploite des principes de stimulation avancés pour favoriser un état de relaxation cellulaire et mentale profonde.",
+        "b2_title": "Optimisation de la Récupération Jour & Nuit",
+        "b2_desc": "Aide à contrer les effets de la fatigue chronique et du stress oxydatif liés aux rythmes de vie modernes.",
+        "b3_title": "Intégration Quotidienne Fluide",
+        "b3_desc": "Conçu pour une utilisation simple, offrant un soutien constant pour votre parcours de santé holistique.",
+        "b4_title": "Approche Non Invasive",
+        "b4_desc": "Une solution sûre et sans effets secondaires, idéale pour prendre soin de soi naturellement et efficacement.",
+        "form_title": "Obtenez un Accès Instantané",
+        "form_desc": "Entrez votre meilleure adresse e-mail ci-dessous pour débloquer un accès immédiat au guide complet.",
+        "email_placeholder": "Entrez votre e-mail...",
+        "button": "DÉBLOQUER L'ACCÈS MAINTENANT",
+        "success": "Accès autorisé ! Redirection vers la présentation...",
+        "error": "Veuillez entrer une adresse e-mail valide.",
+        "faq_title": "❓ Questions Fréquentes",
+        "q1": "Q : Cette présentation convient-elle aux débutants ?",
+        "a1": "R : Oui, le guide technique est structuré pour être facilement compris par tous les passionnés de bien-être.",
+        "q2": "Q : Comment accéder au matériel après avoir entré mon e-mail ?",
+        "a2": "R : Vous serez instantanément redirigé vers la page de présentation technique officielle.",
+        "footer": "Fondé sur des principes rigoureux de biophysique. Conçu pour les passionnés de bien-être."
+    },
+    "Deutsch": {
+        "title": "Verbinden Sie Ihren Körper mit seiner optimalen Frequenz",
+        "subtitle": "Entdecken Sie die nächste Grenze des Bio-Hackings und der Energieregeneration",
+        "trust": "🔒 Sicheres Protokoll &nbsp;|&nbsp; 🌍 Internationaler Standard &nbsp;|&nbsp; ⚡ Sofortiger Zugriff",
+        "social": "⭐️ Von über 1.400 Bio-Hacking-Enthusiasten weltweit geschätzt",
+        "benefits_title": "Hauptvorteile",
+        "b1_title": "Harmonische Frequenztechnologie",
+        "b1_desc": "Nutzt fortgeschrittene Stimulationsprinzipien, um einen Zustand tiefer zellulärer und geistiger Entspannung zu fördern.",
+        "b2_title": "Tag- & Nacht-Erholungsoptimierung",
+        "b2_desc": "Hilft, den Auswirkungen von chronischer Müdigkeit und oxidativem Stress entgegenzuwirken.",
+        "b3_title": "Nahtlose Integration in den Alltag",
+        "b3_desc": "Für eine einfache Anwendung konzipiert und bietet ständige Unterstützung für Ihre ganzheitliche Gesundheit.",
+        "b4_title": "Nicht-invasiver Ansatz",
+        "b4_desc": "Eine sichere, nebenwirkungsfreie Lösung, ideal für alle, die sich auf natürliche Weise etwas Gutes tun möchten.",
+        "form_title": "Sofortigen Zugriff erhalten",
+        "form_desc": "Geben Sie unten Ihre beste E-Mail-Adresse ein, um den sofortigen Zugriff freizuschalten.",
+        "email_placeholder": "Geben Sie Ihre E-Mail ein...",
+        "button": "SOFORTIGEN ZUGRIFF FREISCHALTEN",
+        "success": "Zugriff gewährt! Weiterleitung zur Präsentation...",
+        "error": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "faq_title": "❓ Häufig gestellte Fragen",
+        "q1": "F: Ist diese Präsentation für Anfänger geeignet?",
+        "a1": "A: Ja, der technische Leitfaden ist so aufgebaut, dass er leicht verständlich ist.",
+        "q2": "F: Wie erhalte ich nach der E-Mails-Eingabe Zugriff?",
+        "a2": "A: Sie werden sofort zur offiziellen technischen Präsentationsseite weitergeleitet.",
+        "footer": "Basierend auf strengen biophysikalischen Prinzipien. Für Wellness-Enthusiasten weltweit entwickelt."
+    },
+    "中文": {
+        "title": "让您的身体重新连接最佳频率",
+        "subtitle": "探索生物黑客与能量恢复的新前沿",
+        "trust": "🔒 安全协议 &nbsp;|&nbsp; 🌍 国际标准 &nbsp;|&nbsp; ⚡ 即时访问",
+        "social": "⭐️ 受到全球 1,400 多名生物黑客爱好者的信赖",
+        "benefits_title": "核心优势",
+        "b1_title": "谐振频率技术",
+        "b1_desc": "利用先进的刺激原理，促进细胞和精神深层放松状态。",
+        "b2_title": "昼夜恢复优化",
+        "b2_desc": "帮助抵御快节奏现代生活带来的慢性疲劳和氧化应激。",
+        "b3_title": "无缝融入日常健康",
+        "b3_desc": "设计简单易用，为您的整体健康之旅提供持续支持。",
+        "b4_title": "非侵入式方法",
+        "b4_desc": "安全且无副作用的解决方案，非常适合追求自然与前沿健康的人士。",
+        "form_title": "获取即时访问权限",
+        "form_desc": "在下方输入您的最佳电子邮箱，即可立即解锁完整指南与技术演示。",
+        "email_placeholder": "请输入您的电子邮箱...",
+        "button": "立即解锁访问权限",
+        "success": "访问授权成功！正在跳转至演示页面...",
+        "error": "请输入有效的电子邮箱地址。",
+        "faq_title": "❓ 常见问题",
+        "q1": "问：本演示适合初学者吗？",
+        "a1": "答：是的，技术指南结构清晰，任何对健康和生物黑客感兴趣的人都能轻松理解。",
+        "q2": "问：输入邮箱后如何查看资料？",
+        "a2": "答：您将被立即重定向到官方技术演示页面。",
+        "footer": "基于严谨的生物物理学原理。专为全球健康爱好者设计。"
+    },
+    "日本語": {
+        "title": "体を最適な周波数へと再接続する",
+        "subtitle": "バイオハッキングとエネルギー再生の新たなフロンティアを発見",
+        "trust": "🔒 セキュアプロトコル &nbsp;|&nbsp; 🌍 国際基準 &nbsp;|&nbsp; ⚡ 即時アクセス",
+        "social": "⭐️ 世界中の1,400名を超えるバイオハッキング愛好者から信頼されています",
+        "benefits_title": "主なメリット",
+        "b1_title": "ハーモニック周波数テクノロジー",
+        "b1_desc": "高度な刺激原理を活用し、細胞と精神の深いリラクゼーション状態を促進します。",
+        "b2_title": "昼夜の回復最適化",
+        "b2_desc": "現代の慌ただしいリズムによる慢性疲労や酸化ストレスの影響に対抗します。",
+        "b3_title": "日常のウェルネスへのシームレスな統合",
+        "b3_desc": "簡単に使える設計で、ホリスティックな健康への旅を継続的にサポートします。",
+        "b4_title": "非侵襲的アプローチ",
+        "b4_desc": "自然かつ最先端の方法でケアしたい方に最適な、安全で副作用のないソリューションです。",
+        "form_title": "今すぐアクセスを取得",
+        "form_desc": "以下にメールアドレスを入力して、完全なガイドと技術プレゼンテーションへの即時アクセスを解除してください。",
+        "email_placeholder": "メールアドレスを入力...",
+        "button": "今すぐアクセスを解除",
+        "success": "アクセスが許可されました！プレゼンテーションへ転送中...",
+        "error": "有効なメールアドレスを入力してください。",
+        "faq_title": "❓ よくある質問",
+        "q1": "Q: このプレゼンテーションは初心者でも理解できますか？",
+        "a1": "A: はい、健康やバイオハッキングに関心のある方ならどなたでも簡単に理解できるように構成されています。",
+        "q2": "Q: メール入力後、どのように資料にアクセスしますか？",
+        "a2": "A: 公式の技術プレゼンテーションページに即座にリダイレクトされます。",
+        "footer": "厳格な生物物理学の原理に基づいています。世界中のウェルネス愛好者のために設計されています。"
+    },
+    "العربية": {
+        "title": "أعد توصيل جسمك بتردده الأمثل",
+        "subtitle": "اكتشف الحدود الجديدة للقرصنة الحيوية وتجديد الطاقة",
+        "trust": "🔒 بروتوكول آمن &nbsp;|&nbsp; 🌍 معيار دولي &nbsp;|&nbsp; ⚡ وصول فوري",
+        "social": "⭐️ موثوق من قبل أكثر من 1,400 من عشاق القرصنة الحيوية حول العالم",
+        "benefits_title": "المزايا الرئيسية",
+        "b1_title": "تكنولوجيا التردد المتناسق",
+        "b1_desc": "تستفيد من مبادئ التحفيز المتقدمة تعزيزا لحالة الاسترخاء الخلوي والعقلي العميق.",
+        "b2_title": "تحسين الاسترداد ليلاً ونهاراً",
+        "b2_desc": "يساعد في مواجهة آثار التعب المزمن والإجهاد التأكسدي الناتج عن إيقاع الحياة الحديثة السريع.",
+        "b3_title": "التكامل السلس مع العافية اليومية",
+        "b3_desc": "مصمم للاستخدام السهل، ويوفر دعماً مستمراً لرحلة صحتك الشاملة.",
+        "b4_title": "نهج غير جراحي",
+        "b4_desc": "حل آمن وخالٍ من الآثار الجانبية، مثالي لمن يرغبون في العناية بأنفسهم بطريقة طبيعية ومتطورة.",
+        "form_title": "احصل على الوصول الفوري",
+        "form_desc": "أدخل بريدك الإلكتروني أدناه لفتح الوصول الفوري إلى الدليل الكامل والعرض التقني.",
+        "email_placeholder": "أدخل بريدك الإلكتروني...",
+        "button": "فتح الوصول الفوري الآن",
+        "success": "تم منح الوصول! جاري إعادة التوجيه إلى العرض التقديمي...",
+        "error": "الرجاء إدخال عنوان بريد إلكتروني صالح.",
+        "faq_title": "❓ الأسئلة الشائعة",
+        "q1": "س: هل هذا العرض التقديمي مناسب للمبتدئين؟",
+        "a1": "ج: نعم، الدليل التقني مصمم بحيث يمكن فهمه بسهولة من قبل أي شخص مهتم بالعافية.",
+        "q2": "س: كيف يمكنني الوصول إلى المواد بعد إدخال بريدي الإلكتروني؟",
+        "a2": "ج: سيتم توجيهك فوراً إلى صفحة العرض التقني الرسمية.",
+        "footer": "مبني على مبادئ الفيزياء الحيوية الصارمة. مصمم لعشاق العافية العالمية."
     }
 }
 
-# Stile CSS ottimizzato
+# Stile CSS ottimizzato (gestisce correttamente anche l'allineamento per l'arabo se necessario)
 st.markdown("""
     <style>
     .main {
