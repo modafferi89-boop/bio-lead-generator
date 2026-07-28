@@ -1,3 +1,6 @@
+Ecco il codice completo e corretto per il file `bio_lead_generator.py` pronto da incollare su GitHub:
+
+```python
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -110,7 +113,7 @@ def save_lead(email):
     if os.path.exists(file_path):
         new_data.to_csv(file_path, mode='a', header=False, index=False)
     else:
-        new_data.to_csv(file_path, mode='index', index=False)
+        new_data.to_csv(file_path, mode='w', header=True, index=False)
 
 with st.form("lead_form"):
     user_email = st.text_input("Email Address", placeholder="Enter your email...")
@@ -141,3 +144,5 @@ with st.expander("❓ Frequently Asked Questions"):
     st.write("A: You will be instantly redirected to the official technical presentation page.")
 
 st.markdown("<p style='text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 25px;'>Built on rigorous principles of biophysics. Designed for global wellness enthusiasts.</p>", unsafe_allow_html=True)
+
+```
