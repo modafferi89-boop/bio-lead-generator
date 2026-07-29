@@ -669,8 +669,7 @@ else:
 
   st.write("---")
 
-  # --- CONFIGURAZIONE DELLA TUA VETRINA PRODOTTI (LINK DIVERSI) ---
-  # Sostituisci i link all'interno di 'url' con i diversi link di affiliazione specifici per ogni prodotto.
+  # --- CONFIGURAZIONE DELLA TUA VETRINA PRODOTTI (LINK SPECIFICI) ---
   prodotti_vetrina = [
       {
           "titolo": "⚡ Sistema Principale di Armonizzazione Energetica",
@@ -678,7 +677,7 @@ else:
               "La guida avanzata e il protocollo completo per il ripristino"
               " del benessere quotidiano attraverso frequenze mirate."
           ),
-          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",  # <--- Inserisci qui il link del Prodotto 1
+          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",
       },
       {
           "titolo": "🌿 Kit Integrativo per il Riposo Profondo",
@@ -687,15 +686,33 @@ else:
               " favorire un sonno rigenerante e ridurre l'affaticamento"
               " mentale."
           ),
-          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",  # <--- Inserisci qui il link del Prodotto 2
+          "url": "https://www.digistore24.com/redir/58827/vincenzomodafferi/",
       },
       {
           "titolo": "💧 Guida alla Biofisica della Vitalità Quotidiana",
           "descrizione": (
-              "Un manuale pratico per comprendere l'importanza dell'iddratazione"
+              "Un manuale pratico per comprendere l'importanza dell'idratazione"
               " e dei campi energetici naturali."
           ),
-          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",  # <--- Inserisci qui il link del Prodotto 3
+          "url": "https://pilatesandfriends.com/abo#aff=vincenzomodafferi",
+      },
+      {
+          "titolo": "🧘‍♀️ Percorso Avanzato di Benessere e Mobilità",
+          "descrizione": (
+              "Un programma completo dedicato alla cura del corpo e"
+              " all'equilibrio fisico per la tua routine quotidiana."
+          ),
+          "url": "https://www.digistore24.com/redir/90385/vincenzomodafferi/",
+      },
+      {
+          "titolo": "🌱 Edizione Speciale Riattivazione e Vitalità",
+          "descrizione": (
+              "Risorse mirate e contenuti approfonditi per sostenere l'energia"
+              " e il benessere generale."
+          ),
+          "url": (
+              "https://andreas-goldemann.mykajabi.com/magen-darm-edition-e#aff=vincenzomodafferi"
+          ),
       },
   ]
 
