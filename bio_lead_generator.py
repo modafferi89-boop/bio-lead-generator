@@ -13,7 +13,8 @@ st.set_page_config(
 # ID Google Analytics
 GOOGLE_ANALYTICS_ID = "G-GHSTG893H9"
 
-if GOOGLE_ANALYTICS_ID != "G-XXXXXXXXXX":
+# Iniezione corretta del Tag Google Analytics
+if GOOGLE_ANALYTICS_ID and GOOGLE_ANALYTICS_ID != "G-XXXXXXXXXX":
     st.markdown(f"""
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id={GOOGLE_ANALYTICS_ID}"></script>
