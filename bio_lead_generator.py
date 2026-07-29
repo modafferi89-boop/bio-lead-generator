@@ -370,7 +370,6 @@ t = {
         "b3_desc": "轻松契合您的生活方式，为您的健康之旅提供安静、可靠的支持。",
         "b4_title": "完全无创的方法",
         "b4_desc": "一条安全、无副作用、以绝对尊重呵护身体的温和途径。",
-        "b_title": "获取完整指南",
         "form_title": "获取完整指南",
         "form_desc": (
             "在下方输入您的电子邮箱，以便按照您自己的节奏接收详细的资讯指南。"
@@ -592,10 +591,9 @@ st.markdown(
 
 st.write("---")
 
-
 # Sezione Modulo di Raccolta Contatti (Lead Generation)
 st.markdown(f"### {t[lingua]['form_title']}")
-st.markdown(t[lingua]['form_desc'])
+st.markdown(t[lingua]["form_desc"])
 
 
 def save_lead(email):
@@ -638,9 +636,9 @@ st.write("---")
 # Sezione FAQ a scomparsa
 with st.expander(t[lingua]["faq_title"]):
   st.write(f"**{t[lingua]['q1']}**")
-  st.write(t[lingua]['a1'])
+  st.write(t[lingua]["a1"])
   st.write(f"**{t[lingua]['q2']}**")
-  st.write(t[lingua]['a2'])
+  st.write(t[lingua]["a2"])
 
 st.write("---")
 
@@ -652,7 +650,6 @@ with st.expander("🔐 Area Riservata / Admin Dashboard"):
       "Inserisci la password di accesso:", type="password", key="admin_pwd"
   )
 
-  # Puoi modificare questa password con una tua chiave segreta
   PASSWORD_SEGRETA = "vincenzo_admin_2026"
 
   if admin_password == PASSWORD_SEGRETA:
