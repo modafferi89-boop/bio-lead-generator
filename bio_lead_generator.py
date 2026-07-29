@@ -49,7 +49,7 @@ with col3:
       label_visibility="collapsed",
   )
 
-# Dizionario delle traduzioni (aggiornato anche con i testi della vetrina)
+# Dizionario delle traduzioni
 t = {
     "English": {
         "title": "Restore Balance and Harmony to Your Natural Energy",
@@ -669,8 +669,8 @@ else:
 
   st.write("---")
 
-  # --- CONFIGURAZIONE DELLA TUA VETRINA PRODOTTI ---
-  # Qui puoi inserire quanti prodotti vuoi, modificando Titolo, Descrizione e Link di affiliazione dedicato.
+  # --- CONFIGURAZIONE DELLA TUA VETRINA PRODOTTI (LINK DIVERSI) ---
+  # Sostituisci i link all'interno di 'url' con i diversi link di affiliazione specifici per ogni prodotto.
   prodotti_vetrina = [
       {
           "titolo": "⚡ Sistema Principale di Armonizzazione Energetica",
@@ -678,7 +678,7 @@ else:
               "La guida avanzata e il protocollo completo per il ripristino"
               " del benessere quotidiano attraverso frequenze mirate."
           ),
-          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",
+          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",  # <--- Inserisci qui il link del Prodotto 1
       },
       {
           "titolo": "🌿 Kit Integrativo per il Riposo Profondo",
@@ -687,7 +687,7 @@ else:
               " favorire un sonno rigenerante e ridurre l'affaticamento"
               " mentale."
           ),
-          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",  # Sostituisci con il link specifico del prodotto 2 se lo hai
+          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",  # <--- Inserisci qui il link del Prodotto 2
       },
       {
           "titolo": "💧 Guida alla Biofisica della Vitalità Quotidiana",
@@ -695,11 +695,11 @@ else:
               "Un manuale pratico per comprendere l'importanza dell'iddratazione"
               " e dei campi energetici naturali."
           ),
-          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",  # Sostituisci con il link specifico del prodotto 3 se lo hai
+          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",  # <--- Inserisci qui il link del Prodotto 3
       },
   ]
 
-  # Visualizzazione dinamica dei prodotti della vetrina
+  # Visualizzazione dinamica dei prodotti della vetrina con i rispettivi link unici
   for prod in prodotti_vetrina:
     st.markdown(
         f"""
