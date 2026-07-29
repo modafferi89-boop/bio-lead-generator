@@ -27,6 +27,10 @@ if GOOGLE_ANALYTICS_ID and GOOGLE_ANALYTICS_ID != "G-XXXXXXXXXX":
       unsafe_allow_html=True,
   )
 
+# Inizializzazione dello stato della sessione per la vetrina
+if "lead_registrato" not in st.session_state:
+  st.session_state.lead_registrato = False
+
 # Selettore di lingua principale in alto a destra
 col1, col2, col3 = st.columns([2, 2, 1])
 with col3:
@@ -45,7 +49,7 @@ with col3:
       label_visibility="collapsed",
   )
 
-# Dizionario delle traduzioni ottimizzato per un pubblico sensibile ed etico
+# Dizionario delle traduzioni (aggiornato anche con i testi della vetrina)
 t = {
     "English": {
         "title": "Restore Balance and Harmony to Your Natural Energy",
@@ -84,13 +88,21 @@ t = {
         ),
         "form_title": "Receive the Complete Guide",
         "form_desc": (
-            "Enter your email address below to receive the detailed"
-            " informational guide directly in your inbox, at your own pace."
+            "Enter your email address below to unlock instant access to the"
+            " recommended resources showcase."
         ),
         "email_placeholder": "Enter your email address...",
-        "button": "SEND ME THE FREE GUIDE",
-        "success": "Thank you. Redirecting you to the information page...",
+        "button": "UNLOCK THE RESOURCE SHOWCASE",
+        "success": (
+            "Thank you! Your email has been registered. Here is your showcase:"
+        ),
         "error": "Please enter a valid email address.",
+        "showcase_title": "🌟 Your Exclusive Resource Showcase",
+        "showcase_subtitle": (
+            "Explore our carefully selected tools and solutions designed to"
+            " support your well-being journey."
+        ),
+        "btn_access": "Access Resource",
         "faq_title": "❓ Frequently Asked Questions",
         "q1": "Q: Is this suitable for everyone?",
         "a1": (
@@ -100,8 +112,8 @@ t = {
         ),
         "q2": "Q: What happens after I enter my email?",
         "a2": (
-            "A: You will be gently guided to the complete presentation page,"
-            " with no obligation or rush."
+            "A: You will instantly unlock the showcase page containing all"
+            " recommended solutions."
         ),
         "footer": (
             "Rooted in rigorous biophysical principles and mindful care."
@@ -145,16 +157,22 @@ t = {
         ),
         "form_title": "Ricevi la Guida Approfondita",
         "form_desc": (
-            "Inserisci il tuo indirizzo email qui sotto per ricevere la"
-            " presentazione tecnica completa e scoprire tutti i dettagli in"
-            " libertà."
+            "Inserisci il tuo indirizzo email qui sotto per sbloccare"
+            " immediatamente la vetrina delle risorse consigliate."
         ),
         "email_placeholder": "Inserisci il tuo indirizzo email...",
-        "button": "INVIAMI LA GUIDA GRATUITA",
+        "button": "SBLOCA LA VETRINA RISORSE",
         "success": (
-            "Grazie di cuore. Verrai reindirizzato alla pagina informativa..."
+            "Grazie di cuore! Registrazione completata. Ecco la tua vetrina"
+            " dedicata:"
         ),
         "error": "Inserisci un indirizzo email valido per favore.",
+        "showcase_title": "🌟 La tua Vetrina Risorse Esclusive",
+        "showcase_subtitle": (
+            "Esplora le soluzioni selezionate con cura per accompagnarti nel"
+            " tuo percorso di benessere."
+        ),
+        "btn_access": "Accedi alla Risorsa",
         "faq_title": "❓ Domande Frequenti",
         "q1": (
             "D: È un percorso adatto a chi si avvicina per la prima volta a"
@@ -167,8 +185,8 @@ t = {
         ),
         "q2": "D: Cosa succede dopo aver inserito la mia email?",
         "a2": (
-            "R: Verrai accompagnato direttamente alla pagina della"
-            " presentazione ufficiale, senza alcun impegno o fretta."
+            "R: Avrai accesso immediato alla pagina della vetrina con tutti i"
+            " prodotti e link consigliati."
         ),
         "footer": (
             "Fondato su rigorosi principi di biofisica e rispetto della"
@@ -212,13 +230,18 @@ t = {
         ),
         "form_title": "Recibe la Guía Completa",
         "form_desc": (
-            "Introduce tu correo electrónico para recibir toda la información"
-            " detallada a tu propio ritmo."
+            "Introduce tu correo electrónico para desbloquear la selección de"
+            " recursos recomendados."
         ),
         "email_placeholder": "Introduce tu correo electrónico...",
-        "button": "QUIERO RECIBIR LA GUÍA",
-        "success": "Muchas gracias. Te redirigimos a la página informativa...",
+        "button": "DESBLOQUEAR LA VITRINA",
+        "success": "¡Muchas gracias! Aquí tienes tu escaparate de recursos:",
         "error": "Por favor, introduce un correo electrónico válido.",
+        "showcase_title": "🌟 Tu Vitrina de Recursos Exclusivos",
+        "showcase_subtitle": (
+            "Explora las soluciones seleccionadas para tu bienestar."
+        ),
+        "btn_access": "Acceder al Recurso",
         "faq_title": "❓ Preguntas Frecuentes",
         "q1": "P: ¿Es adecuado para principiantes?",
         "a1": (
@@ -226,14 +249,8 @@ t = {
             " interesada en el bienestar."
         ),
         "q2": "P: ¿Qué ocurre después de introducir mi correo?",
-        "a2": (
-            "R: Serás dirigido a la presentación oficial sin ningún tipo de"
-            " compromiso."
-        ),
-        "footer": (
-            "Basado en principios de biofísica y cuidado consciente. Para"
-            " amantes del bienestar global."
-        ),
+        "a2": "R: Desbloquearás de inmediato el acceso a la vitrina de productos.",
+        "footer": "Basado en principios de biofísica y cuidado consciente.",
     },
     "Français": {
         "title": (
@@ -274,13 +291,18 @@ t = {
         ),
         "form_title": "Recevez le Guide Complet",
         "form_desc": (
-            "Indiquez votre adresse e-mail ci-dessous pour découvrir la"
-            " présentation détaillée à votre rythme."
+            "Indiquez votre adresse e-mail pour débloquer l'accès à la vitrine"
+            " des ressources recommandées."
         ),
         "email_placeholder": "Votre adresse e-mail...",
-        "button": "RECEVOIR LE GUIDE GRATUIT",
-        "success": "Merci beaucoup. Redirection vers la page d'information...",
+        "button": "DÉBLOQUER LA VITRINE",
+        "success": "Merci beaucoup ! Voici votre vitrine de ressources :",
         "error": "Veuillez entrer une adresse e-mail valide.",
+        "showcase_title": "🌟 Votre Vitrine de Ressources Exclusives",
+        "showcase_subtitle": (
+            "Découvrez nos solutions sélectionnées pour votre bien-être."
+        ),
+        "btn_access": "Accéder à la ressource",
         "faq_title": "❓ Questions Fréquentes",
         "q1": "Q : Est-ce adapté à ceux qui débutent ?",
         "a1": (
@@ -288,14 +310,8 @@ t = {
             " et accessible à tous."
         ),
         "q2": "Q : Que se passe-t-il après avoir entré mon e-mail ?",
-        "a2": (
-            "R : Vous accéderez directement à la présentation officielle, en"
-            " toute liberté."
-        ),
-        "footer": (
-            "Fondé sur des principes rigoureux et un soin attentif. Conédié au"
-            " bien-être conscient."
-        ),
+        "a2": "R : Vous accédez instantanément à la vitrine de produits.",
+        "footer": "Fondé sur des principes rigoureux et un soin attentif.",
     },
     "Deutsch": {
         "title": "Finden Sie die Harmonie und Balance Ihrer natürlichen Energie",
@@ -334,26 +350,26 @@ t = {
         ),
         "form_title": "Den ausführlichen Leitfaden anfordern",
         "form_desc": (
-            "Geben Sie Ihre E-Mail-Adresse ein, um die vollständigen"
-            " Informationen in Ihrem eigenen Tempo zu erhalten."
+            "Geben Sie Ihre E-Mail ein, um die exklusive Produktvitrine"
+            " freizuschalten."
         ),
         "email_placeholder": "Ihre E-Mail-Adresse...",
-        "button": "LEITFADEN KOSTENLOS ANFORDERN",
+        "button": "VITRINE FREISCHALTEN",
         "success": (
-            "Vielen Dank. Sie werden zur Informationsseite weitergeleitet..."
+            "Vielen Dank! Ihre E-Mail wurde gespeichert. Hier ist Ihre Vitrine:"
         ),
         "error": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "showcase_title": "🌟 Ihre exklusive Ressourcen-Vitrine",
+        "showcase_subtitle": (
+            "Entdecken Sie sorgfältig ausgewählte Lösungen für Ihr"
+            " Wohlbefinden."
+        ),
+        "btn_access": "Zur Ressource",
         "faq_title": "❓ Häufig gestellte Fragen",
         "q1": "F: Ist dieser Ansatz auch für Einsteiger geeignet?",
-        "a1": (
-            "A: Ja, der Leitfaden ist transparent und für jeden verständlich"
-            " aufgebaut."
-        ),
+        "a1": "A: Ja, transparent und für jeden verständlich.",
         "q2": "F: Was geschieht nach der E-Mails-Eingabe?",
-        "a2": (
-            "A: Sie gelangen völlig unverbindlich direkt zur offiziellen"
-            " Präsentation."
-        ),
+        "a2": "A: Sie erhalten sofortigen Zugriff auf die Produktvitrine.",
         "footer": "Verankert in biophysikalischen Prinzipien und bewusster Fürsorge.",
     },
     "中文": {
@@ -371,21 +387,20 @@ t = {
         "b4_title": "完全无创的方法",
         "b4_desc": "一条安全、无副作用、以绝对尊重呵护身体的温和途径。",
         "form_title": "获取完整指南",
-        "form_desc": (
-            "在下方输入您的电子邮箱，以便按照您自己的节奏接收详细的资讯指南。"
-        ),
+        "form_desc": "在下方输入您的电子邮箱以立即解锁推荐资源展示窗口。",
         "email_placeholder": "请输入您的电子邮箱...",
-        "button": "免费获取指南",
-        "success": "非常感谢。正在引导您进入资讯页面...",
+        "button": "立即解锁资源展示",
+        "success": "非常感谢！您的邮箱已记录，以下是为您准备的资源展示：",
         "error": "请输入有效的电子邮箱地址。",
+        "showcase_title": "🌟 您的专属资源展示",
+        "showcase_subtitle": "探索专为您的健康之旅精心挑选的工具与解决方案。",
+        "btn_access": "访问资源",
         "faq_title": "❓ 常见问题",
         "q1": "问：这适合初次接触的人吗？",
-        "a1": "答：是的，本指南旨在保持清晰透明，适合任何注重健康的朋友。",
+        "a1": "答：是的，内容清晰透明。",
         "q2": "问：输入邮箱后会发生什么？",
-        "a2": "答：您将被轻柔地引导至官方展示页面，没有任何压力或强制。",
-        "footer": (
-            "根植于严谨的生物物理学与用心关怀。专为注重意识生活的您设计。"
-        ),
+        "a2": "答：您将立即解锁包含所有推荐方案的展示页面。",
+        "footer": "根植于严谨的生物物理学与用心关怀。",
     },
     "日本語": {
         "title": "自然なエネルギーの調和とバランスを取り戻す",
@@ -413,26 +428,28 @@ t = {
         "b3_desc": (
             "生活のリズムを崩さず、静かで確かな支えを日常にもたらします。"
         ),
-        "b4_title": "完全な非侵襲적アプローチ",
+        "b4_title": "完全な非侵襲的アプローチ",
         "b4_desc": (
             "身体への負担や副作用がなく、大切にご自身をケアするための安全な方法です。"
         ),
         "form_title": "詳細ガイドを受け取る",
-        "form_desc": (
-            "メールアドレスを入力して、ご自身のペースで詳しい案内資料をお受け取りください。"
-        ),
+        "form_desc": "メールアドレスを入力して、おすすめリソースの特設ページをアンロック。",
         "email_placeholder": "メールアドレスを入力...",
-        "button": "無料ガイドを受け取る",
-        "success": "ありがとうございます。案内ページへお進みします...",
+        "button": "リソース特設ページを見る",
+        "success": (
+            "ありがとうございます！登録が完了しました。おすすめの特設ページはこちらです："
+        ),
         "error": "有効なメールアドレスを入力してください。",
+        "showcase_title": "🌟 おすすめリソース・特設セレクション",
+        "showcase_subtitle": (
+            "あなたのウェルネスの旅を支える厳選されたツールをご覧ください。"
+        ),
+        "btn_access": "リソースにアクセス",
         "faq_title": "❓ よくある質問",
         "q1": "Q: 初めての方でも安心してご覧いただけますか？",
-        "a1": "A: はい。どなたにも分かりやすく、透明性のある内容でまとめています。",
+        "a1": "A: はい。分かりやすく透明性のある内容です。",
         "q2": "Q: メール入力後はどうなりますか？",
-        "a2": (
-            "A:"
-            " プレッシャーや義務感なく、公式のプレゼンテーションページへご案内します。"
-        ),
+        "a2": "A: おすすめリソースの特設ページがすぐに表示されます。",
         "footer": "生物物理学の原理と細やかな思いやりを基盤としています。",
     },
     "العربية": {
@@ -458,27 +475,22 @@ t = {
             " الاحترام."
         ),
         "form_title": "احصل على الدليل الشامل",
-        "form_desc": (
-            "أدخل بريدك الإلكتروني أدناه لتلقي الدليل التوضيحي بالتفصيل وبالسرعة"
-            " التي تناسبك."
-        ),
+        "form_desc": "أدخل بريدك الإلكتروني أدناه لفتح واجهة عرض الموارد الموصى بها فوراً.",
         "email_placeholder": "أدخل بريدك الإلكتروني...",
-        "button": "أرسل لي الدليل المجاني",
-        "success": "شكراً جزيلاً لك. جاري توجيهك إلى صفحة المعلومات...",
+        "button": "فتح واجهة الموارد",
+        "success": "شكراً لك! تم تسجيل بريدك بنجاح. إليك نافذة الموارد المخصصة:",
         "error": "الرجاء إدخال عنوان بريد إلكتروني صالح.",
+        "showcase_title": "🌟 نافذة الموارد الحصرية الخاصة بك",
+        "showcase_subtitle": (
+            "استكشف الحلول المختارة بعناية لدعم رحلتك نحو العافية."
+        ),
+        "btn_access": "الوصول إلى المورد",
         "faq_title": "❓ الأسئلة الشائعة",
         "q1": "س: هل هذا مناسب لمن يستكشف هذا المجال لأول مرة؟",
-        "a1": (
-            "ج: بالتأكيد. تم إعداد الدليل ليكون واضحاً وشفيفاً ومتاحاً لكل مهتم"
-            " بالعافية الواعية."
-        ),
+        "a1": "ج: بالتأكيد، الدليل واضح وشفاف.",
         "q2": "س: ماذا يحدث بعد إدخال بريدي الإلكتروني؟",
-        "a2": (
-            "ج: سيتم توجيهك بلطف إلى صفحة العرض الرسمي، دون أي التزام أو إزعاج."
-        ),
-        "footer": (
-            "مبني على أسس الفيزياء الحيوية والرعاية الواعية. مصمم لحياة أكثر وعياً."
-        ),
+        "a2": "ج: سيتم فتح صفحة العرض التي تضم كافة الموارد والروابط الموصى بها.",
+        "footer": "مبني على أسس الفيزياء الحيوية والرعاية الواعية.",
     },
 }
 
@@ -522,6 +534,14 @@ st.markdown(
         line-height: 1.5;
         margin-top: 6px;
     }
+    .product-card {
+        background-color: #ffffff;
+        padding: 24px;
+        border-radius: 10px;
+        border: 1px solid #cbd5e1;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    }
     .trust-badge {
         text-align: center;
         color: #0284c7;
@@ -541,60 +561,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Intestazione Principale
-st.markdown(
-    f"<h1 style='text-align: center; color: #0284c7;'>{t[lingua]['title']}</h1>",
-    unsafe_allow_html=True,
-)
-st.markdown(
-    f"<p style='text-align: center; font-style: italic; color: #475569;"
-    f" font-size: 1.15rem;'>{t[lingua]['subtitle']}</p>",
-    unsafe_allow_html=True,
-)
-
-st.write("---")
-
-# Badge di fiducia e Social Proof
-st.markdown(
-    f"<div class='trust-badge'>{t[lingua]['trust']}</div>",
-    unsafe_allow_html=True,
-)
-st.markdown(
-    f"<div class='social-proof'>{t[lingua]['social']}</div>",
-    unsafe_allow_html=True,
-)
-
-# Sezione Benefici
-st.markdown(f"### {t[lingua]['benefits_title']}")
-
-st.markdown(
-    f"""
-<div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b1_title']}</strong><br>
-    <div class="benefit-desc">{t[lingua]['b1_desc']}</div>
-</div>
-<div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b2_title']}</strong><br>
-    <div class="benefit-desc">{t[lingua]['b2_desc']}</div>
-</div>
-<div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b3_title']}</strong><br>
-    <div class="benefit-desc">{t[lingua]['b3_desc']}</div>
-</div>
-<div class="benefit-box">
-    <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b4_title']}</strong><br>
-    <div class="benefit-desc">{t[lingua]['b4_desc']}</div>
-</div>
-""",
-    unsafe_allow_html=True,
-)
-
-st.write("---")
-
-# Sezione Modulo di Raccolta Contatti (Lead Generation)
-st.markdown(f"### {t[lingua]['form_title']}")
-st.markdown(t[lingua]["form_desc"])
-
 
 def save_lead(email):
   file_path = "leads.csv"
@@ -605,44 +571,159 @@ def save_lead(email):
     new_data.to_csv(file_path, mode="w", header=True, index=False)
 
 
-with st.form("lead_form"):
-  user_email = st.text_input(
-      "Email Address", placeholder=t[lingua]["email_placeholder"]
+# ==========================================
+# GESTIONE SCHERMATA: SE IL LEAD NON SI È ISCRITTO
+# ==========================================
+if not st.session_state.lead_registrato:
+  # Intestazione Principale
+  st.markdown(
+      f"<h1 style='text-align: center; color: #0284c7;'>{t[lingua]['title']}</h1>",
+      unsafe_allow_html=True,
   )
-  submit_button = st.form_submit_button(label=t[lingua]["button"])
+  st.markdown(
+      f"<p style='text-align: center; font-style: italic; color: #475569;"
+      f" font-size: 1.15rem;'>{t[lingua]['subtitle']}</p>",
+      unsafe_allow_html=True,
+  )
 
-  if submit_button:
-    if user_email and "@" in user_email and "." in user_email:
-      save_lead(user_email)
-      st.success(t[lingua]["success"])
+  st.write("---")
 
-      affiliate_url = (
-          "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/"
-      )
-      st.markdown(
-          f"""
-                <meta http-equiv="refresh" content="1;url={affiliate_url}" />
-                <script>
-                    window.location.href = "{affiliate_url}";
-                </script>
-            """,
-          unsafe_allow_html=True,
-      )
-    else:
-      st.error(t[lingua]["error"])
+  # Badge di fiducia e Social Proof
+  st.markdown(
+      f"<div class='trust-badge'>{t[lingua]['trust']}</div>",
+      unsafe_allow_html=True,
+  )
+  st.markdown(
+      f"<div class='social-proof'>{t[lingua]['social']}</div>",
+      unsafe_allow_html=True,
+  )
 
-st.write("---")
+  # Sezione Benefici
+  st.markdown(f"### {t[lingua]['benefits_title']}")
+  st.markdown(
+      f"""
+    <div class="benefit-box">
+        <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b1_title']}</strong><br>
+        <div class="benefit-desc">{t[lingua]['b1_desc']}</div>
+    </div>
+    <div class="benefit-box">
+        <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b2_title']}</strong><br>
+        <div class="benefit-desc">{t[lingua]['b2_desc']}</div>
+    </div>
+    <div class="benefit-box">
+        <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b3_title']}</strong><br>
+        <div class="benefit-desc">{t[lingua]['b3_desc']}</div>
+    </div>
+    <div class="benefit-box">
+        <strong style="color: #0284c7; font-size: 1.15rem;">{t[lingua]['b4_title']}</strong><br>
+        <div class="benefit-desc">{t[lingua]['b4_desc']}</div>
+    </div>
+    """,
+      unsafe_allow_html=True,
+  )
 
-# Sezione FAQ a scomparsa
-with st.expander(t[lingua]["faq_title"]):
-  st.write(f"**{t[lingua]['q1']}**")
-  st.write(t[lingua]["a1"])
-  st.write(f"**{t[lingua]['q2']}**")
-  st.write(t[lingua]["a2"])
+  st.write("---")
 
-st.write("---")
+  # Sezione Modulo di Raccolta Contatti (Lead Generation)
+  st.markdown(f"### {t[lingua]['form_title']}")
+  st.markdown(t[lingua]["form_desc"])
+
+  with st.form("lead_form"):
+    user_email = st.text_input(
+        "Email Address", placeholder=t[lingua]["email_placeholder"]
+    )
+    submit_button = st.form_submit_button(label=t[lingua]["button"])
+
+    if submit_button:
+      if user_email and "@" in user_email and "." in user_email:
+        save_lead(user_email)
+        st.session_state.lead_registrato = True
+        st.rerun()
+      else:
+        st.error(t[lingua]["error"])
+
+  st.write("---")
+
+  # Sezione FAQ a scomparsa
+  with st.expander(t[lingua]["faq_title"]):
+    st.write(f"**{t[lingua]['q1']}**")
+    st.write(t[lingua]["a1"])
+    st.write(f"**{t[lingua]['q2']}**")
+    st.write(t[lingua]["a2"])
+
+# ==========================================
+# GESTIONE SCHERMATA: VETRINA PRODOTTI (DOPO L'ISCRIZIONE)
+# ==========================================
+else:
+  st.success(t[lingua]["success"])
+  st.markdown(
+      f"<h2 style='color: #0284c7; text-align: center; margin-top: 10px;'>"
+      f"{t[lingua]['showcase_title']}</h2>",
+      unsafe_allow_html=True,
+  )
+  st.markdown(
+      f"<p style='text-align: center; color: #475569; font-size: 1.1rem;'>"
+      f"{t[lingua]['showcase_subtitle']}</p>",
+      unsafe_allow_html=True,
+  )
+
+  st.write("---")
+
+  # --- CONFIGURAZIONE DELLA TUA VETRINA PRODOTTI ---
+  # Qui puoi inserire quanti prodotti vuoi, modificando Titolo, Descrizione e Link di affiliazione dedicato.
+  prodotti_vetrina = [
+      {
+          "titolo": "⚡ Sistema Principale di Armonizzazione Energetica",
+          "descrizione": (
+              "La guida avanzata e il protocollo completo per il ripristino"
+              " del benessere quotidiano attraverso frequenze mirate."
+          ),
+          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",
+      },
+      {
+          "titolo": "🌿 Kit Integrativo per il Riposo Profondo",
+          "descrizione": (
+              "Soluzioni e frequenze acustiche studiate specificamente per"
+              " favorire un sonno rigenerante e ridurre l'affaticamento"
+              " mentale."
+          ),
+          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",  # Sostituisci con il link specifico del prodotto 2 se lo hai
+      },
+      {
+          "titolo": "💧 Guida alla Biofisica della Vitalità Quotidiana",
+          "descrizione": (
+              "Un manuale pratico per comprendere l'importanza dell'iddratazione"
+              " e dei campi energetici naturali."
+          ),
+          "url": "https://www.checkout-ds24.com/redir/649413/vincenzomodafferi/",  # Sostituisci con il link specifico del prodotto 3 se lo hai
+      },
+  ]
+
+  # Visualizzazione dinamica dei prodotti della vetrina
+  for prod in prodotti_vetrina:
+    st.markdown(
+        f"""
+        <div class="product-card">
+            <h3 style="color: #0284c7; margin-top: 0;">{prod['titolo']}</h3>
+            <p style="color: #334155; font-size: 1.05rem; line-height: 1.5;">{prod['descrizione']}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.link_button(
+        f"🔗 {t[lingua]['btn_access']} — {prod['titolo']}",
+        prod["url"],
+        use_container_width=True,
+    )
+    st.write("")  # Spaziatura
+
+  st.write("---")
+  if st.button("🔄 Torna alla Home / Inserisci un'altra email"):
+    st.session_state.lead_registrato = False
+    st.rerun()
 
 # --- PANNELLO ADMIN / DASHBOARD ANALITICA INTEGRATA ---
+st.write("---")
 with st.expander("🔐 Area Riservata / Admin Dashboard"):
   st.subheader("📊 Analisi e Monitoraggio Lead in Tempo Reale")
 
